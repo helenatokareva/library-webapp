@@ -1,0 +1,3 @@
+login;password
+default;HASH('SHA256', STRINGTOUTF8('12345'), 1)
+user;HASH('SHA256', STRINGTOUTF8('11111'), 1)

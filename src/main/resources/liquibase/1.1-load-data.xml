@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+            http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="load-data-users" author="elena">
+        <loadData encoding="UTF-8" file="liquibase/data/users.csv" tableName="users" separator=";">
+            <column name="login" type="string"/>
+            <column name="password" type="computed"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="load-data-books" author="elena">
+        <loadData encoding="UTF-8" file="liquibase/data/books.csv" tableName="books" separator=";">
+            <column name="isbn" type="string"/>
+            <column name="author" type="string"/>
+            <column name="title" type="string"/>
+            <column name="taken_by" type="string"/>
+        </loadData>
+        <rollback/>
+    </changeSet>
+
+    <changeSet id="tag-1.1" author="elena">
+        <tagDatabase tag="1.1"/>
+    </changeSet>
+</databaseChangeLog>
